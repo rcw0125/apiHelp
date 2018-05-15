@@ -1,0 +1,20 @@
+1.添加oracle实体， DbContext名为 DbContext，模型为model1的实体模型
+2.引用Oracle.ManagedDataAccess.EntityFramework，添加nuget程序包，搜oracle
+3.通过一个T4文本模板，生成一个各个类的restful服务
+4.序列化的理解
+5.添加helppage，添加nuget程序包，搜helppage
+6.helppage的不显示description的配置，1.更改helppageConfig.cs中   替换为config.SetDocumentationProvider(new XmlDocumentationProvider                     (HttpContext.Current.Server.MapPath("~/bin/apiHelp.XML")))，  2.项目属性-生成-输出-xml文档文件  打钩
+
+20180125
+7.添加跨域支持  在webconfig中修改添加 
+<httpProtocol>
+       <customHeaders>
+         <add name="Access-Control-Allow-Origin" value="*" />
+         <add name="Access-Control-Allow-Headers" value="*" />
+         <add name="Access-Control-Allow-Methods" value="GET, POST, PUT, DELETE" />
+       </customHeaders>
+     </httpProtocol>
+
+
+发布问题：
+   发布后，报错：找不到文件/apiHelp.XML，需要将该文件拷贝到指定目录下，原因发布的时候没有自动生成xml文件

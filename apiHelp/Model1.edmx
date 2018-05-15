@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CBOF_BASE_DATA">
+          <Key>
+            <PropertyRef Name="HEATID" />
+          </Key>
+          <Property Name="GUID" Type="varchar2" MaxLength="250" />
+          <Property Name="NAME" Type="varchar2" MaxLength="250" />
+          <Property Name="HEATID" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="PREHEATID" Type="varchar2" MaxLength="250" />
+          <Property Name="STEELGRADEINDEX" Type="varchar2" MaxLength="250" />
+          <Property Name="STEELGRADE" Type="varchar2" MaxLength="250" />
+          <Property Name="SHIFT" Type="varchar2" MaxLength="250" />
+          <Property Name="TEAM" Type="varchar2" MaxLength="250" />
+          <Property Name="HEADFURNACE" Type="varchar2" MaxLength="250" />
+          <Property Name="ASSISTANT" Type="varchar2" MaxLength="250" />
+          <Property Name="SECONDHAND" Type="varchar2" MaxLength="250" />
+          <Property Name="PRODUCTIONDATE" Type="date" />
+          <Property Name="STATISTICSDATE" Type="date" />
+          <Property Name="LOCKED" Type="number" Precision="5" Scale="0" />
+          <Property Name="NC_CONFIRM_FLAG" Type="number" Precision="10" Scale="0" />
+          <Property Name="TS" Type="varchar2" MaxLength="20" />
+          <Property Name="DR" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="S_RESOURCE_T">
+          <Key>
+            <PropertyRef Name="RESOURCEID" />
+          </Key>
+          <Property Name="GUID" Type="varchar2" MaxLength="36" Nullable="false" />
+          <Property Name="RESOURCEID" Type="varchar2" MaxLength="36" Nullable="false" />
+          <Property Name="RESOURCEICON" Type="varchar2" MaxLength="36" />
+          <Property Name="RESOURCELINK" Type="varchar2" MaxLength="36" />
+          <Property Name="RESOURCENAME" Type="varchar2" MaxLength="36" />
+          <Property Name="RESOURCETYPE" Type="varchar2" MaxLength="36" />
+          <Property Name="ISDISPLAY" Type="varchar2" MaxLength="10" />
+          <Property Name="TS" Type="varchar2" MaxLength="20" />
+          <Property Name="DR" Type="varchar2" MaxLength="20" />
+          <Property Name="FGUID" Type="varchar2" MaxLength="36" />
+          <Property Name="REMARK" Type="varchar2" MaxLength="36" />
+        </EntityType>
+        <EntityType Name="S_RESOURCEROLE_T">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="varchar2" MaxLength="36" Nullable="false" />
+          <Property Name="ROLEID" Type="varchar2" MaxLength="36" />
+          <Property Name="RESOURCEID" Type="varchar2" MaxLength="36" />
+          <Property Name="TS" Type="varchar2" MaxLength="20" />
+          <Property Name="DR" Type="varchar2" MaxLength="20" />
+          <Property Name="FGUID" Type="varchar2" MaxLength="36" />
+          <Property Name="REMARK" Type="varchar2" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="S_ROLE_T">
+          <Key>
+            <PropertyRef Name="ROLEID" />
+          </Key>
+          <Property Name="GUID" Type="varchar2" MaxLength="36" Nullable="false" />
+          <Property Name="ROLEID" Type="varchar2" MaxLength="36" Nullable="false" />
+          <Property Name="ROLENAME" Type="varchar2" MaxLength="36" />
+          <Property Name="TS" Type="varchar2" MaxLength="20" />
+          <Property Name="DR" Type="varchar2" MaxLength="20" />
+          <Property Name="BEGINTIME" Type="varchar2" MaxLength="20" />
+          <Property Name="ENDTIME" Type="varchar2" MaxLength="20" />
+          <Property Name="FGUID" Type="varchar2" MaxLength="36" />
+          <Property Name="REMARK" Type="varchar2" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="S_ROLEUSER_T">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="varchar2" MaxLength="36" Nullable="false" />
+          <Property Name="ROLEID" Type="varchar2" MaxLength="36" />
+          <Property Name="USERID" Type="varchar2" MaxLength="36" />
+          <Property Name="TS" Type="varchar2" MaxLength="20" />
+          <Property Name="DR" Type="varchar2" MaxLength="20" />
+          <Property Name="BEGINTIME" Type="varchar2" MaxLength="20" />
+          <Property Name="ENDTIME" Type="varchar2" MaxLength="20" />
+          <Property Name="FGUID" Type="varchar2" MaxLength="36" />
+          <Property Name="REMARK" Type="varchar2" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="S_USER_T">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="GUID" Type="varchar2" MaxLength="36" Nullable="false" />
+          <Property Name="USERID" Type="varchar2" MaxLength="36" Nullable="false" />
+          <Property Name="DISPLAYNAME" Type="varchar2" MaxLength="36" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="36" />
+          <Property Name="AGE" Type="number" Precision="10" Scale="0" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="36" />
+          <Property Name="NATION" Type="varchar2" MaxLength="36" />
+          <Property Name="PHONE" Type="varchar2" MaxLength="36" />
+          <Property Name="SERVICING" Type="varchar2" MaxLength="36" />
+          <Property Name="SEX" Type="varchar2" MaxLength="36" />
+          <Property Name="USERIMAGE" Type="varchar2" MaxLength="36" />
+          <Property Name="TS" Type="varchar2" MaxLength="20" />
+          <Property Name="DR" Type="varchar2" MaxLength="20" />
+          <Property Name="FGUID" Type="varchar2" MaxLength="36" />
+          <Property Name="REMARK" Type="varchar2" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_S_ROLEUSER_T_ROLEID">
+          <End Role="S_ROLE_T" Type="Self.S_ROLE_T" Multiplicity="0..1" />
+          <End Role="S_ROLEUSER_T" Type="Self.S_ROLEUSER_T" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_ROLE_T">
+              <PropertyRef Name="ROLEID" />
+            </Principal>
+            <Dependent Role="S_ROLEUSER_T">
+              <PropertyRef Name="ROLEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_S_ROLEUSER_T_USERID">
+          <End Role="S_USER_T" Type="Self.S_USER_T" Multiplicity="0..1" />
+          <End Role="S_ROLEUSER_T" Type="Self.S_ROLEUSER_T" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_USER_T">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="S_ROLEUSER_T">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKS_RESOURCEROLE_T_RESOURCEID">
+          <End Role="S_RESOURCE_T" Type="Self.S_RESOURCE_T" Multiplicity="0..1" />
+          <End Role="S_RESOURCEROLE_T" Type="Self.S_RESOURCEROLE_T" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_RESOURCE_T">
+              <PropertyRef Name="RESOURCEID" />
+            </Principal>
+            <Dependent Role="S_RESOURCEROLE_T">
+              <PropertyRef Name="RESOURCEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="CBOF_BASE_DATA" EntityType="Self.CBOF_BASE_DATA" Schema="XGMES" store:Type="Tables" />
+          <EntitySet Name="S_RESOURCE_T" EntityType="Self.S_RESOURCE_T" Schema="XGMES" store:Type="Tables" />
+          <EntitySet Name="S_RESOURCEROLE_T" EntityType="Self.S_RESOURCEROLE_T" Schema="XGMES" store:Type="Tables" />
+          <EntitySet Name="S_ROLE_T" EntityType="Self.S_ROLE_T" Schema="XGMES" store:Type="Tables" />
+          <EntitySet Name="S_ROLEUSER_T" EntityType="Self.S_ROLEUSER_T" Schema="XGMES" store:Type="Tables" />
+          <EntitySet Name="S_USER_T" EntityType="Self.S_USER_T" Schema="XGMES" store:Type="Tables" />
+          <AssociationSet Name="FK_S_ROLEUSER_T_ROLEID" Association="Self.FK_S_ROLEUSER_T_ROLEID">
+            <End Role="S_ROLE_T" EntitySet="S_ROLE_T" />
+            <End Role="S_ROLEUSER_T" EntitySet="S_ROLEUSER_T" />
+          </AssociationSet>
+          <AssociationSet Name="FK_S_ROLEUSER_T_USERID" Association="Self.FK_S_ROLEUSER_T_USERID">
+            <End Role="S_USER_T" EntitySet="S_USER_T" />
+            <End Role="S_ROLEUSER_T" EntitySet="S_ROLEUSER_T" />
+          </AssociationSet>
+          <AssociationSet Name="FKS_RESOURCEROLE_T_RESOURCEID" Association="Self.FKS_RESOURCEROLE_T_RESOURCEID">
+            <End Role="S_RESOURCE_T" EntitySet="S_RESOURCE_T" />
+            <End Role="S_RESOURCEROLE_T" EntitySet="S_RESOURCEROLE_T" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CBOF_BASE_DATA">
+          <Key>
+            <PropertyRef Name="HEATID" />
+          </Key>
+          <Property Name="GUID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="HEATID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PREHEATID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="STEELGRADEINDEX" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="STEELGRADE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SHIFT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TEAM" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="HEADFURNACE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ASSISTANT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SECONDHAND" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCTIONDATE" Type="DateTime" />
+          <Property Name="STATISTICSDATE" Type="DateTime" />
+          <Property Name="LOCKED" Type="Int16" />
+          <Property Name="NC_CONFIRM_FLAG" Type="Int32" />
+          <Property Name="TS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="S_RESOURCE_T">
+          <Key>
+            <PropertyRef Name="RESOURCEID" />
+          </Key>
+          <Property Name="GUID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RESOURCEID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RESOURCEICON" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="RESOURCELINK" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="RESOURCENAME" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="RESOURCETYPE" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ISDISPLAY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FGUID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="REMARK" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="S_RESOURCEROLE_T" Relationship="Self.FKS_RESOURCEROLE_T_RESOURCEID" FromRole="S_RESOURCE_T" ToRole="S_RESOURCEROLE_T" />
+        </EntityType>
+        <EntityType Name="S_RESOURCEROLE_T">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROLEID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="RESOURCEID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="TS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FGUID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="S_RESOURCE_T" Relationship="Self.FKS_RESOURCEROLE_T_RESOURCEID" FromRole="S_RESOURCEROLE_T" ToRole="S_RESOURCE_T" />
+        </EntityType>
+        <EntityType Name="S_ROLE_T">
+          <Key>
+            <PropertyRef Name="ROLEID" />
+          </Key>
+          <Property Name="GUID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROLEID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROLENAME" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="TS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BEGINTIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ENDTIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FGUID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="S_ROLEUSER_T" Relationship="Self.FK_S_ROLEUSER_T_ROLEID" FromRole="S_ROLE_T" ToRole="S_ROLEUSER_T" />
+        </EntityType>
+        <EntityType Name="S_ROLEUSER_T">
+          <Key>
+            <PropertyRef Name="GUID" />
+          </Key>
+          <Property Name="GUID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROLEID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="USERID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="TS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BEGINTIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ENDTIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FGUID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="S_ROLE_T" Relationship="Self.FK_S_ROLEUSER_T_ROLEID" FromRole="S_ROLEUSER_T" ToRole="S_ROLE_T" />
+          <NavigationProperty Name="S_USER_T" Relationship="Self.FK_S_ROLEUSER_T_USERID" FromRole="S_ROLEUSER_T" ToRole="S_USER_T" />
+        </EntityType>
+        <EntityType Name="S_USER_T">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="GUID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USERID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DISPLAYNAME" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AGE" Type="Int32" />
+          <Property Name="EMAIL" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="NATION" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="SERVICING" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="SEX" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="USERIMAGE" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="TS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FGUID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="REMARK" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="S_ROLEUSER_T" Relationship="Self.FK_S_ROLEUSER_T_USERID" FromRole="S_USER_T" ToRole="S_ROLEUSER_T" />
+        </EntityType>
+        <Association Name="FKS_RESOURCEROLE_T_RESOURCEID">
+          <End Role="S_RESOURCE_T" Type="Self.S_RESOURCE_T" Multiplicity="0..1" />
+          <End Role="S_RESOURCEROLE_T" Type="Self.S_RESOURCEROLE_T" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_RESOURCE_T">
+              <PropertyRef Name="RESOURCEID" />
+            </Principal>
+            <Dependent Role="S_RESOURCEROLE_T">
+              <PropertyRef Name="RESOURCEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_S_ROLEUSER_T_ROLEID">
+          <End Role="S_ROLE_T" Type="Self.S_ROLE_T" Multiplicity="0..1" />
+          <End Role="S_ROLEUSER_T" Type="Self.S_ROLEUSER_T" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_ROLE_T">
+              <PropertyRef Name="ROLEID" />
+            </Principal>
+            <Dependent Role="S_ROLEUSER_T">
+              <PropertyRef Name="ROLEID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_S_ROLEUSER_T_USERID">
+          <End Role="S_USER_T" Type="Self.S_USER_T" Multiplicity="0..1" />
+          <End Role="S_ROLEUSER_T" Type="Self.S_ROLEUSER_T" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="S_USER_T">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="S_ROLEUSER_T">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CBOF_BASE_DATA" EntityType="Self.CBOF_BASE_DATA" />
+          <EntitySet Name="S_RESOURCE_T" EntityType="Self.S_RESOURCE_T" />
+          <EntitySet Name="S_RESOURCEROLE_T" EntityType="Self.S_RESOURCEROLE_T" />
+          <EntitySet Name="S_ROLE_T" EntityType="Self.S_ROLE_T" />
+          <EntitySet Name="S_ROLEUSER_T" EntityType="Self.S_ROLEUSER_T" />
+          <EntitySet Name="S_USER_T" EntityType="Self.S_USER_T" />
+          <AssociationSet Name="FKS_RESOURCEROLE_T_RESOURCEID" Association="Self.FKS_RESOURCEROLE_T_RESOURCEID">
+            <End Role="S_RESOURCE_T" EntitySet="S_RESOURCE_T" />
+            <End Role="S_RESOURCEROLE_T" EntitySet="S_RESOURCEROLE_T" />
+          </AssociationSet>
+          <AssociationSet Name="FK_S_ROLEUSER_T_ROLEID" Association="Self.FK_S_ROLEUSER_T_ROLEID">
+            <End Role="S_ROLE_T" EntitySet="S_ROLE_T" />
+            <End Role="S_ROLEUSER_T" EntitySet="S_ROLEUSER_T" />
+          </AssociationSet>
+          <AssociationSet Name="FK_S_ROLEUSER_T_USERID" Association="Self.FK_S_ROLEUSER_T_USERID">
+            <End Role="S_USER_T" EntitySet="S_USER_T" />
+            <End Role="S_ROLEUSER_T" EntitySet="S_ROLEUSER_T" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="CBOF_BASE_DATA">
+            <EntityTypeMapping TypeName="Model.CBOF_BASE_DATA">
+              <MappingFragment StoreEntitySet="CBOF_BASE_DATA">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="HEATID" ColumnName="HEATID" />
+                <ScalarProperty Name="PREHEATID" ColumnName="PREHEATID" />
+                <ScalarProperty Name="STEELGRADEINDEX" ColumnName="STEELGRADEINDEX" />
+                <ScalarProperty Name="STEELGRADE" ColumnName="STEELGRADE" />
+                <ScalarProperty Name="SHIFT" ColumnName="SHIFT" />
+                <ScalarProperty Name="TEAM" ColumnName="TEAM" />
+                <ScalarProperty Name="HEADFURNACE" ColumnName="HEADFURNACE" />
+                <ScalarProperty Name="ASSISTANT" ColumnName="ASSISTANT" />
+                <ScalarProperty Name="SECONDHAND" ColumnName="SECONDHAND" />
+                <ScalarProperty Name="PRODUCTIONDATE" ColumnName="PRODUCTIONDATE" />
+                <ScalarProperty Name="STATISTICSDATE" ColumnName="STATISTICSDATE" />
+                <ScalarProperty Name="LOCKED" ColumnName="LOCKED" />
+                <ScalarProperty Name="NC_CONFIRM_FLAG" ColumnName="NC_CONFIRM_FLAG" />
+                <ScalarProperty Name="TS" ColumnName="TS" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="S_RESOURCE_T">
+            <EntityTypeMapping TypeName="Model.S_RESOURCE_T">
+              <MappingFragment StoreEntitySet="S_RESOURCE_T">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="RESOURCEID" ColumnName="RESOURCEID" />
+                <ScalarProperty Name="RESOURCEICON" ColumnName="RESOURCEICON" />
+                <ScalarProperty Name="RESOURCELINK" ColumnName="RESOURCELINK" />
+                <ScalarProperty Name="RESOURCENAME" ColumnName="RESOURCENAME" />
+                <ScalarProperty Name="RESOURCETYPE" ColumnName="RESOURCETYPE" />
+                <ScalarProperty Name="ISDISPLAY" ColumnName="ISDISPLAY" />
+                <ScalarProperty Name="TS" ColumnName="TS" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="FGUID" ColumnName="FGUID" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="S_RESOURCEROLE_T">
+            <EntityTypeMapping TypeName="Model.S_RESOURCEROLE_T">
+              <MappingFragment StoreEntitySet="S_RESOURCEROLE_T">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+                <ScalarProperty Name="RESOURCEID" ColumnName="RESOURCEID" />
+                <ScalarProperty Name="TS" ColumnName="TS" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="FGUID" ColumnName="FGUID" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="S_ROLE_T">
+            <EntityTypeMapping TypeName="Model.S_ROLE_T">
+              <MappingFragment StoreEntitySet="S_ROLE_T">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+                <ScalarProperty Name="ROLENAME" ColumnName="ROLENAME" />
+                <ScalarProperty Name="TS" ColumnName="TS" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="BEGINTIME" ColumnName="BEGINTIME" />
+                <ScalarProperty Name="ENDTIME" ColumnName="ENDTIME" />
+                <ScalarProperty Name="FGUID" ColumnName="FGUID" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="S_ROLEUSER_T">
+            <EntityTypeMapping TypeName="Model.S_ROLEUSER_T">
+              <MappingFragment StoreEntitySet="S_ROLEUSER_T">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="TS" ColumnName="TS" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="BEGINTIME" ColumnName="BEGINTIME" />
+                <ScalarProperty Name="ENDTIME" ColumnName="ENDTIME" />
+                <ScalarProperty Name="FGUID" ColumnName="FGUID" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="S_USER_T">
+            <EntityTypeMapping TypeName="Model.S_USER_T">
+              <MappingFragment StoreEntitySet="S_USER_T">
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="DISPLAYNAME" ColumnName="DISPLAYNAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="NATION" ColumnName="NATION" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="SERVICING" ColumnName="SERVICING" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="USERIMAGE" ColumnName="USERIMAGE" />
+                <ScalarProperty Name="TS" ColumnName="TS" />
+                <ScalarProperty Name="DR" ColumnName="DR" />
+                <ScalarProperty Name="FGUID" ColumnName="FGUID" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
